@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				echo "Build"
+				bat label: '', script: 'mvn clean install'
 			}
 		}
 	    stage('Test') {
