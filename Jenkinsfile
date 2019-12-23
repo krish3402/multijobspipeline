@@ -12,10 +12,13 @@ pipeline {
 		}
 	   	 stage('Test') {
 	    		steps {
-	    		tool name: 'Maven', type: 'maven'
-			clean install	
+	    		bat label: '', script: 'mvn clean test'
 	    	}
 	    }
-	
+		stage('Deploy') {
+	    	steps {
+	    		echo "Deploy"
+	    	}
+	    }	
 	}
 }
