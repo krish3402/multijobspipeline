@@ -12,10 +12,6 @@ pipeline {
 			clean install	
 	    	}
 	    }
-	   	 stage('Deploy') {
-	    		steps {
-	    		echo "Deploy"	
-	    	}
-	    }
+	
 	}
 }
