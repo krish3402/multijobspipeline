@@ -8,7 +8,7 @@ pipeline {
 		}
 	    stage('Test') {
 	    	steps {
-	    		echo "Test"
+	    		bat label: '', script: 'mvn clean test'
 	    	}
 	    }
 	    stage('Deploy') {
