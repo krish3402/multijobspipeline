@@ -6,14 +6,21 @@ pipeline {
 				git 'https://github.com/krish3402/multijobspipeline.git'
 			}
 		}
-	   	 stage('Test') {
-	    		steps {
-				withSonarQubeEnv {
-				bat label: '', script: 'mvn clean deploy sonar:sonar'
-				}	    				
-	    	}   
-			
-	    }
+	   	 tage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+          stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
 		stage('Reports') {
 			steps {
 				jacoco()
