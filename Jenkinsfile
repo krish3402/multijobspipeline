@@ -16,6 +16,11 @@ pipeline {
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'module-2/target/site/jacoco-aggregate/', reportFiles: 'index.html', reportName: 'module-2 Report', reportTitles: ''])
 				
 	    	}
+			 post {
+                success {
+                    junit 'maven-simple/target/site/jacoco-aggregate/*.xml' 
+                }
+            }
 	    }
 		stage('Deploy') {
 	    	steps {
