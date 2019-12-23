@@ -8,7 +8,7 @@ pipeline {
 		}
 	   	 stage('Test') {
 	    		steps {
-	    		bat label: '', script: 'mvn clean deploy sonar:sonar -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=multimodule -Dsonar.projectVersion=1.0 -Dsonar.junit.reportPaths=maven-simple/target/surefire-reports/*.xml -Dsonar.junit.reportPaths=module-1/target/surefire-reports/*.xml -Dsonar.junit.reportPaths=module-1/target/surefire-reports/*.xml'
+	    		bat label: '', script: 'mvn clean deploy sonar:sonar -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=multimodule -Dsonar.projectVersion=1.0 -Dsonar.junit.reportPaths=maven-simple/target/surefire-reports/TEST-com.mlesniak.jacoco.AppTest.xml	 -Dsonar.junit.reportPaths=module-1/target/surefire-reports/TEST-com.mlesniak.jacoco.Module1MainTest.xml -Dsonar.junit.reportPaths=module-1/target/surefire-reports/TEST-com.mlesniak.jacoco.Module2MainTest.xml'
 				
 			jacoco()
 			publishCoverage adapters: [jacocoAdapter(mergeToOneReport: true, path: 'maven-simple/target/site/jacoco-aggregate/jacoco.xml', thresholds: [[thresholdTarget: 'Aggregated Report']]), jacocoAdapter(mergeToOneReport: true, path: 'module-1/target/site/jacoco-aggregate/jacoco.xml'), jacocoAdapter(mergeToOneReport: true, path: 'module-2/target/site/jacoco-aggregate/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
