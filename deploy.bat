@@ -17,9 +17,9 @@ xcopy /E /I %JBOSS_HOME%\standalone %JBOSS_HOME%\%NODE1%
 xcopy /E /I %JBOSS_HOME%\standalone %JBOSS_HOME%\%NODE2%
 xcopy /E /I %JBOSS_HOME%\standalone %JBOSS_HOME%\%NODE3%
 
-copy %NODE1%-%VERSION%.jar %JBOSS_HOME%\%NODE1%\%NODE1%.jar
-copy %NODE2%-%VERSION%.jar %JBOSS_HOME%\%NODE2%\%NODE2%.jar
-copy %NODE3%-%VERSION%.jar %JBOSS_HOME%\%NODE3%\%NODE3%.jar
+copy %NODE1%-%VERSION%.jar %JBOSS_HOME%\%NODE1%\deployments\%NODE1%.jar
+copy %NODE2%-%VERSION%.jar %JBOSS_HOME%\%NODE2%\deployments\%NODE2%.jar
+copy %NODE3%-%VERSION%.jar %JBOSS_HOME%\%NODE3%\deployments\%NODE3%.jar
 
 move /y %NODE1%-%VERSION%.jar %NODE1%-%VERSION%.jar_bkp
 move /y %NODE2%-%VERSION%.jar %NODE2%-%VERSION%.jar_bkp
