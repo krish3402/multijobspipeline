@@ -24,7 +24,7 @@ pipeline {
 	    		bat label: '', script: 'deploy.bat'
 	    	}
 	    }	
-		stage("build & SonarQube analysis") {
+		stage('build & SonarQube analysis') {
             agent any
             steps {
               withSonarQubeEnv('My SonarQube Server') {
