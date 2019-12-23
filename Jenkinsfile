@@ -3,12 +3,14 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				bat label: '', script: 'mvn clean install'
+				git 'https://github.com/krish3402/multijobspipeline.git'
 			}
 		}
 	   	 stage('Test') {
 	    		steps {
 	    		bat label: '', script: 'mvn clean test'
+			jacoco()
+				
 	    	}
 	    }
 		stage('Deploy') {
