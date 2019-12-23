@@ -10,17 +10,10 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('My SonarQube Server') {
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn clean deploy sonar:sonar'
               }
             }
-          }
-          stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-          }
+          }         
 		stage('Reports') {
 			steps {
 				jacoco()
