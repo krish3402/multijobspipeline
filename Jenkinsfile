@@ -14,13 +14,10 @@ pipeline {
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'maven-simple/target/site/jacoco-aggregate/', reportFiles: 'index.html', reportName: 'maven-simple Report', reportTitles: ''])
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'module-1/target/site/jacoco-aggregate/', reportFiles: 'index.html', reportName: 'module-1 Report', reportTitles: ''])
 			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'module-2/target/site/jacoco-aggregate/', reportFiles: 'index.html', reportName: 'module-2 Report', reportTitles: ''])
-				
+			tool name: 'SonarScannner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+			sonar.projectKey=multimodule	
 	    	}
-			 post {
-                success {
-                    junit 'maven-simple/target/site/jacoco-aggregate/*.xml' 
-                }
-            }
+			
 	    }
 		stage('Deploy') {
 	    	steps {
