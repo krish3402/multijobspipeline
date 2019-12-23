@@ -8,7 +8,7 @@ pipeline {
 		}
 	   	 stage('Test') {
 	    		steps {
-	    		bat label: '', script: 'mvn clean deploy sonar:sonar -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=multimodule -Dsonar.projectVersion=1.0 -Dsonar.sources=. -Dsonar.tests=. -Dsonar.test.inclusions=**/*Test*/** -Dsonar.exclusions=**/*Test*/**'
+	    		bat label: '', script: 'mvn clean deploy sonar:sonar -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=multimodule -Dsonar.projectVersion=1.0 -Dsonar.sources=. -Dsonar.tests=.'
 				
 			jacoco()
 			publishCoverage adapters: [jacocoAdapter(mergeToOneReport: true, path: 'maven-simple/target/site/jacoco-aggregate/jacoco.xml', thresholds: [[thresholdTarget: 'Aggregated Report']]), jacocoAdapter(mergeToOneReport: true, path: 'module-1/target/site/jacoco-aggregate/jacoco.xml'), jacocoAdapter(mergeToOneReport: true, path: 'module-2/target/site/jacoco-aggregate/jacoco.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
