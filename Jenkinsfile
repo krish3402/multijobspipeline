@@ -1,7 +1,6 @@
 pipeline {
 	agent any
 	stages {
-		node {
 		stage('Build') {
 			steps {
 				bat label: '', script: 'mvn clean install'
@@ -15,8 +14,7 @@ pipeline {
 	    }
 	   	 stage('Deploy') {
 	    		steps {
-	    		echo "Deploy"
-			}		
+	    		echo "Deploy"	
 	    	}
 	    }
 	}
