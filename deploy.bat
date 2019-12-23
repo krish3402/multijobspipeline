@@ -10,7 +10,7 @@ D:\softwares\wget\wget.exe http://3.82.215.163:8080/nexus-latest/service/local/r
 timeout 20
 D:\softwares\wget\wget.exe http://3.82.215.163:8080/nexus-latest/service/local/repositories/releases/content/com/mlesniak/jacoco/%NODE2%/%VERSION%/%NODE2%-%VERSION%.jar
 timeout 20 
-D:\softwares\wgetwget.exe http://3.82.215.163:8080/nexus-latest/service/local/repositories/releases/content/com/mlesniak/jacoco/%NODE3%/%VERSION%/%NODE3%-%VERSION%.jar
+D:\softwares\wget\wget.exe http://3.82.215.163:8080/nexus-latest/service/local/repositories/releases/content/com/mlesniak/jacoco/%NODE3%/%VERSION%/%NODE3%-%VERSION%.jar
 timeout 20
 
 xcopy /E /I %JBOSS_HOME%\standalone %JBOSS_HOME%\%NODE1%
