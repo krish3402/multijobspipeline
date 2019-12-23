@@ -9,7 +9,7 @@ pipeline {
 	   	 stage('Test') {
 	    		steps {
 				withSonarQubeEnv {
-				bat label: '', script: 'mvn clean deploy'
+				bat label: '', script: 'mvn clean deploy sonar:sonar'
 				}	    				
 	    	}   
 			
