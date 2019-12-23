@@ -9,8 +9,7 @@ pipeline {
 	    stage('Test') {
 	    	steps {
 	    		tool name: 'Maven', type: 'maven'
-			clean install
-			jacoco()
+			clean install	
 	    	}
 	    }
 	    stage('Deploy') {
