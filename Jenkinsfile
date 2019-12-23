@@ -9,6 +9,7 @@ pipeline {
 	    stage('Test') {
 	    	steps {
 	    		bat label: '', script: 'mvn clean test'
+			jacoco()
 	    	}
 	    }
 	    stage('Deploy') {
