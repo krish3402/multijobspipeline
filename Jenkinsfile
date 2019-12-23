@@ -6,7 +6,7 @@ pipeline {
 				git 'https://github.com/krish3402/multijobspipeline.git'
 			}
 		}
-	   	 tage("build & SonarQube analysis") {
+	   	 stage("build & SonarQube analysis") {
             agent any
             steps {
               withSonarQubeEnv('My SonarQube Server') {
