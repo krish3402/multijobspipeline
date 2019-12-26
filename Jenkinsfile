@@ -6,7 +6,7 @@ pipeline {
 				git 'https://github.com/krish3402/multijobspipeline.git'
 			}
 		}
-	   	 tage('Test') {
+	   	 stage('Test') {
 	    		steps {
 				withSonarQubeEnv('My SonarQube Server') {
 				
