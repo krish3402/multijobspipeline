@@ -7,9 +7,9 @@ pipeline {
 			}
 		}
 	   	 stage('build && SonarQube analysis') {
-            steps {
-                withSonarQubeEnv('My SonarQube Server') {
-                       sh 'mvn clean deploy sonar:sonar'
+           		 steps {
+              			  withSonarQubeEnv('My SonarQube Server') {
+                      		 bat label: '', script: 'mvn clean deploy sonar:sonar'
                
                 }
             }
