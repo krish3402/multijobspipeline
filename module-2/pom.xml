@@ -8,8 +8,10 @@
         <groupId>com.mlesniak.jacoco</groupId>
         <artifactId>module-main</artifactId>
         <version>1.0</version>
+             
     </parent>
     <artifactId>module-2</artifactId>
+         <packaging>pom</packaging>
 
     
 <dependencies>
