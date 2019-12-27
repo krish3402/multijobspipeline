@@ -12,6 +12,7 @@
 
   
   <artifactId>maven-simple</artifactId> 
+         <packaging>pom</packaging>
      
          
 
